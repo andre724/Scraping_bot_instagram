@@ -114,7 +114,5 @@ for i in dic_conta_posts.keys():
             except:
                 driver.refresh()
     
-
-
-
+driver.quit()
 
