@@ -5,16 +5,18 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import time
-#import para salvar as fotos
 import os 
 import wget
+from dotenv import load_dotenv
 #------------ Log in --------------------------------------------------------------------------------------------------------------------#
 confirm='sim'
 conta_count=0
 contas_list=[]
 dic_conta_posts={}
 
-PATH = 'C:\Program Files (x86)\chromedriver.exe'
+load_dotenv()
+
+PATH = os.environ["PATH_DRIVER"]
 driver = webdriver.Chrome(PATH)
 driver.get("https://www.instagram.com/")
 
@@ -31,8 +33,8 @@ except:
 
 username.clear()
 password.clear()
-username.send_keys("")
-password.send_keys("")
+username.send_keys(os.environ["INSTA_USER"])
+password.send_keys(os.environ["INSTA_PASS"])
 log_in.click()
 
 try:
